@@ -16,7 +16,11 @@ public class SauceDemo extends BaseTest {
     public void TestBrowser(){
         loginPage.openPage();
         ProductsPage productsPage = loginPage.validLogin("standard_user", "secret_sauce");
-        productsPage.isProductPageLoaded();
+        FluentWait<ProductsPage> fluent = new FluentWait<>(productsPage)
+                .withTimeout(Duration.ofSeconds(60))
+                .pollingEvery(Duration.ofSeconds(5))
+                .ignoring(NoSuchElementException.class);
+        fluent.until(ProductsPage::isProductPageLoaded);
         Assert.assertEquals(driver.getTitle(), "Swag Labs");
     }
 

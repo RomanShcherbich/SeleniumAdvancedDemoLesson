@@ -9,7 +9,7 @@ import java.time.Duration;
 public class ProductsPage extends BasePage {
 
     String addToCartLocator = "//div[contains(.,'%s')]/ancestor::div[@class='inventory_item']//button";
-    By sortImage = new By.ByCssSelector(".peek2");
+    By sortImage = new By.ByCssSelector(".peek");
 
     public ProductsPage(WebDriver driver) {
         super(driver);
@@ -17,16 +17,15 @@ public class ProductsPage extends BasePage {
 
     public ProductsPage isProductPageLoaded(){
 //        explicitWait.until(ExpectedConditions.attributeToBe(sortImage, "class", "peek1"));
-
-
-
-        FluentWait<DriverFluent> fluent = new FluentWait<>(new DriverFluent(driver))
+//        FluentWait<DriverFluent> fluent = new FluentWait<>(new DriverFluent(driver))
 //        FluentWait<WebDriver> fluent = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(60))
-                .pollingEvery(Duration.ofSeconds(5))
-                .ignoring(NoSuchElementException.class);
-        fluent.until(driver -> driver.findElement(sortImage));
-        return new ProductsPage(driver);
+//                .withTimeout(Duration.ofSeconds(60))
+//                .pollingEvery(Duration.ofSeconds(5))
+//                .ignoring(NoSuchElementException.class);
+//        fluent.until(driver -> driver.findElement(sortImage));
+        System.out.println("FLUENT WAIT");
+        driver.findElement(sortImage);
+        return this;
     }
 
     public void addToCart(String productName) {

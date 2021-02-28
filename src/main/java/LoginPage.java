@@ -4,7 +4,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
 
-    public static final String URL = "https://www.saucedemo.com/index.html";
+    public static final String URL = "https://www.saucedemo.com";
     public static final By USERNAME_INPUT = By.id("user-name");
     public static final By PASSWORD_INPUT = By.id("password");
     public static final By LOGIN_BUTTON = By.id("login-button");
