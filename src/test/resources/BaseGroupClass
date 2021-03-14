@@ -1,3 +1,5 @@
+package BaseGroup;
+
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Point;
@@ -10,12 +12,12 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-public class BaseTest {
+public class BaseGroup {
 
     protected WebDriver driver;
     protected LoginPage loginPage;
 
-    @BeforeClass
+    @BeforeTest(groups = {"init-browser"})
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
@@ -25,6 +27,16 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
     }
 
+    @BeforeGroups(groups = {"init-browser"})
+    public void initBrowser() {
+        closeBrowser();
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.manage().window().setPosition(new Point(0, 0));
+        driver.manage().window().setSize(new Dimension(1280, 720));
+        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        loginPage = new LoginPage(driver);
+    }
 
     @BeforeMethod
     public void openWindow() {
@@ -53,7 +65,12 @@ public class BaseTest {
         switchToNewTab();
     }
 
-    @AfterClass
+    @AfterGroups(groups = {"init-browser"})
+    public void closeGroupBrowser() {
+        driver.quit();
+    }
+
+    @AfterTest(groups = {"init-browser"})
     public void closeBrowser() {
         driver.quit();
     }

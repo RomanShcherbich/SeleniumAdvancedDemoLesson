@@ -1,4 +1,8 @@
+package pages;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 abstract class BasePage {
@@ -16,5 +20,13 @@ abstract class BasePage {
         this.explicitWait = new WebDriverWait(driver, explicitWait);
     }
 
+    public ExpectedCondition<Boolean> waitForPageLoaded() {
+        return new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                return ((JavascriptExecutor) driver).executeScript("return document.readyState")
+                        .toString().equals("complete");
+            }
+        };
+    }
 
 }
