@@ -1,30 +1,27 @@
+package pageobject;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-
-import java.time.Duration;
 
 public class ProductsPage extends BasePage {
 
     String addToCartLocator = "//div[contains(.,'%s')]/ancestor::div[@class='inventory_item']//button";
     By sortImage = new By.ByCssSelector(".peek");
+    By pictogram = By.className("fa-layers-counter");
 
     public ProductsPage(WebDriver driver) {
         super(driver);
     }
 
-    public ProductsPage isProductPageLoaded(){
-//        explicitWait.until(ExpectedConditions.attributeToBe(sortImage, "class", "peek1"));
-//        FluentWait<DriverFluent> fluent = new FluentWait<>(new DriverFluent(driver))
-//        FluentWait<WebDriver> fluent = new FluentWait<>(driver)
-//                .withTimeout(Duration.ofSeconds(60))
-//                .pollingEvery(Duration.ofSeconds(5))
-//                .ignoring(NoSuchElementException.class);
-//        fluent.until(driver -> driver.findElement(sortImage));
+    @Override
+    public void isPageOpened() {
         System.out.println("FLUENT WAIT");
         driver.findElement(sortImage);
+    }
+
+    public ProductsPage isProductPageLoaded(){
+        isPageOpened();
         return this;
     }
 
@@ -39,6 +36,11 @@ public class ProductsPage extends BasePage {
 
     public void logOutFromMenuButton() {
         driver.findElement(By.id("logout_sidebar_link"));
+    }
+
+    public int getPictogramValue(){
+        explicitWait.until(ExpectedConditions.visibilityOfElementLocated(pictogram));
+        return Integer.parseInt(driver.findElement(pictogram).getText());
     }
 
 }

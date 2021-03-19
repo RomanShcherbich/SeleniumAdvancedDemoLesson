@@ -1,10 +1,12 @@
+package pageobject;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-abstract class BasePage {
+public abstract class BasePage {
 
-    WebDriver driver;
-    WebDriverWait explicitWait;
+    protected WebDriver driver;
+    protected WebDriverWait explicitWait;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -16,5 +18,6 @@ abstract class BasePage {
         this.explicitWait = new WebDriverWait(driver, explicitWait);
     }
 
+    public abstract void isPageOpened();
 
 }
