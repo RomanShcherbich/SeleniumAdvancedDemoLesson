@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="2" name="Test suite" parallel="classes">
+<suite name="Test suite" >
     <!--            <parameter name="password" value="password"></parameter>-->
     <!--            <parameter name="email" value="test@mailinator.com"></parameter>-->
     <groups>
         <run>
-            <include name = "init-browser"/>
-            <exclude name = "exclude"/>
+<!--            <include name = "init-browser"/>-->
+<!--            <exclude name = "exclude"/>-->
+<!--            <exclude name = "flacky"/>-->
         </run>
     </groups>
     <test name="test 1">
         <classes>
-            <class name="SauceDemoTest">
+            <class name="sauceTest.SauceDemoTest">
             </class>
         </classes>
     </test>

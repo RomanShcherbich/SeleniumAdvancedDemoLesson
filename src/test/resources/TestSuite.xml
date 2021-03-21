@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Test suite" thread-count="10" parallel="tests" >
+<!--<suite name="Test suite">-->
     <!--            <parameter name="password" value="password"></parameter>-->
     <!--            <parameter name="email" value="test@mailinator.com"></parameter>-->
-    <test name="test 1">
+<!--    <listeners>-->
+<!--        <listener class-name="com.vimalselvam.testng.listener.ExtentTestNgFormatter" />-->
+<!--    </listeners>-->
+
+
+    <listeners>
+        <listener class-name = "CustomReporter" />
+    </listeners>
+    <test name="test 1" parallel="classes" thread-count="1">
         <classes>
-            <class name="SauceDemoTest">
+            <class name="sauceTest.SauceDemoTest">
                 <methods>
                     <include name = "testJsWaiter"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="test 2">
+    <test name="test 2" parallel="classes" thread-count="1">
         <classes>
-            <class name="SauceDemoTest">
-                <methods>
-                    <include name = "validLogin"/>
-                    <include name = "testJsWaiter"/>
-                    <include name = "logout"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="test 3">
-        <classes>
-            <class name="SauceDemoTest">
+            <class name="sauceTest.SauceDemoTest">
                 <methods>
                     <include name = "validLogin"/>
                     <include name = "testJsWaiter"/>
@@ -34,20 +32,27 @@
             </class>
         </classes>
     </test>
-    <test name="test 4">
+    <test name="test 3" parallel="classes" thread-count="1">
         <classes>
-            <class name="SauceDemoTest">
+            <class name="sauceTest.SauceDemoTest">
                 <methods>
-                    <include name = "validLogin"/>
-                    <include name = "testJsWaiter"/>
-                    <include name = "logout"/>
+                    <include name = "addAllProductsToCart"/>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="test 5">
+    <test name="test 4" parallel="classes" thread-count="1">
         <classes>
-            <class name="SauceDemoTest">
+            <class name="sauceTest.SauceDemoTest">
+                <methods>
+                    <include name = "addProductToCart"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="test 5" parallel="classes" thread-count="1">
+        <classes>
+            <class name="sauceTest.SauceDemoTest">
                 <methods>
                     <include name = "logout"/>
                 </methods>
