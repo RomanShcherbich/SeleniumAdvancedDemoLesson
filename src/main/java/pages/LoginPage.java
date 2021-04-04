@@ -31,6 +31,10 @@ public class LoginPage extends BasePage {
         driver.findElement(LOGIN_BUTTON).click();
     }
 
+    public LoginPage waitLoginPageLoaded(){
+        explicitWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(LOGIN_BUTTON));
+        return this;
+    }
 
     public ProductsPage loginWithoutCreeds() {
         driver.findElement(LOGIN_BUTTON).click();

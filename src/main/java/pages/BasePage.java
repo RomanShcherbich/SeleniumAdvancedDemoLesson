@@ -20,7 +20,7 @@ abstract class BasePage {
         this.explicitWait = new WebDriverWait(driver, explicitWait);
     }
 
-    public ExpectedCondition<Boolean> waitForPageLoaded() {
+    protected ExpectedCondition<Boolean> waitForPageLoaded() {
         return new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver driver) {
                 return ((JavascriptExecutor) driver).executeScript("return document.readyState")

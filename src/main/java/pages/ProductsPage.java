@@ -19,12 +19,6 @@ public class ProductsPage extends BasePage {
     }
 
     public ProductsPage isProductPageLoaded(){
-//        FluentWait<pages.DriverFluent> fluent = new FluentWait<>(new pages.DriverFluent(driver))
-//        FluentWait<WebDriver> fluent = new FluentWait<>(driver)
-//                .withTimeout(Duration.ofSeconds(60))
-//                .pollingEvery(Duration.ofSeconds(5))
-//                .ignoring(NoSuchElementException.class);
-//        fluent.until(driver -> driver.findElement(sortImage));
         System.out.println("FLUENT WAIT");
         driver.findElement(sortImage);
         return this;

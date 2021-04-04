@@ -47,6 +47,7 @@ public class SauceDemoTest extends BaseTest {
     @Test(groups = {"init-browser"})
     public void validLogin(){
         loginPage.openPage();
+        loginPage.waitLoginPageLoaded();
         ProductsPage productsPage = loginPage.validLogin("standard_user", "secret_sauce");
         productsPage.isProductPageLoaded();
     }
