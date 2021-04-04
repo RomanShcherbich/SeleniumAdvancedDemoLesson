@@ -1,53 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Test suite" thread-count="10" parallel="tests" >
-    <!--            <parameter name="password" value="password"></parameter>-->
-    <!--            <parameter name="email" value="test@mailinator.com"></parameter>-->
+<suite name="Test suite demo" thread-count="10" parallel="tests" >
     <test name="test 1">
+        <parameter name="keyword" value="keyValue"/>
         <classes>
-            <class name="SauceDemoTest">
+            <class name="sauceTest.SauceDemoTest">
                 <methods>
+                    <include name = "validLogin"/>
                     <include name = "testJsWaiter"/>
+                    <include name = "addProductToCart"/>
                 </methods>
             </class>
         </classes>
     </test>
     <test name="test 2">
         <classes>
-            <class name="SauceDemoTest">
+            <class name="sauceTest.SauceDemoTest">
                 <methods>
-                    <include name = "validLogin"/>
-                    <include name = "testJsWaiter"/>
-                    <include name = "logout"/>
+                    <include name = "addAllProductsToCart"/>
                 </methods>
             </class>
         </classes>
     </test>
     <test name="test 3">
         <classes>
-            <class name="SauceDemoTest">
-                <methods>
-                    <include name = "validLogin"/>
-                    <include name = "testJsWaiter"/>
-                    <include name = "logout"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="test 4">
-        <classes>
-            <class name="SauceDemoTest">
-                <methods>
-                    <include name = "validLogin"/>
-                    <include name = "testJsWaiter"/>
-                    <include name = "logout"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="test 5">
-        <classes>
-            <class name="SauceDemoTest">
+            <class name="sauceTest.SauceDemoTest">
                 <methods>
                     <include name = "logout"/>
                 </methods>
