@@ -24,7 +24,7 @@ public class BaseTest {
 
     @BeforeTest
     public void setUp(ITestContext context) {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/webdrivers/linux/88/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/webdrivers/linux/86/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().setPosition(new Point(0, 0));
         driver.manage().window().setSize(new Dimension(1280, 720));
