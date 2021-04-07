@@ -83,4 +83,13 @@ public class SauceDemoTest extends BaseTest {
     }
 
 
+    @Test(description = "Environment variable test")
+    @Link("https://app.circleci.com/settings/project/github/RomanShcherbich/SeleniumAdvancedDemoLesson/environment-variables?return-to=https%3A%2F%2Fapp.circleci.com%2Fpipelines%2Fgithub%2FRomanShcherbich%2FSeleniumAdvancedDemoLesson")
+    @Description("Circleci config test to provide environment variables")
+    public void externalEnvironmentsTest(){
+        String username = System.getProperty("username");
+        Assert.assertEquals(username , "standard_user", "External variable [username] is " + username);
+    }
+
+
 }

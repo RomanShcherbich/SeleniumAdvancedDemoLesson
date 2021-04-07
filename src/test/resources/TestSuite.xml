@@ -31,4 +31,13 @@
             </class>
         </classes>
     </test>
+    <test name="Environment variable test">
+        <classes>
+            <class name="sauceTest.SauceDemoTest">
+                <methods>
+                    <include name = "externalEnvironmentsTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>
