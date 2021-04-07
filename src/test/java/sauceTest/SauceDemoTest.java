@@ -15,7 +15,8 @@ import java.time.Duration;
 
 public class SauceDemoTest extends BaseTest {
 
-
+    String username = System.getenv("username");
+    String password = System.getenv("password");
 
     @Flaky
     @Description("Тест с использование гибкого ожидания")
@@ -27,7 +28,7 @@ public class SauceDemoTest extends BaseTest {
         MainSteps.step("open page 1");
         loginPage.openPage();
         MainSteps.stepKeyword(keyword);
-        ProductsPage productsPage = loginPage.validLogin("standard_user", "secret_sauce");
+        ProductsPage productsPage = loginPage.validLogin(username, password);
         FluentWait<ProductsPage> fluent = new FluentWait<>(productsPage)
                 .withTimeout(Duration.ofSeconds(60))
                 .pollingEvery(Duration.ofSeconds(5))
@@ -48,14 +49,14 @@ public class SauceDemoTest extends BaseTest {
     public void validLogin(){
         loginPage.openPage();
         loginPage.waitLoginPageLoaded();
-        ProductsPage productsPage = loginPage.validLogin("standard_user", "secret_sauce");
+        ProductsPage productsPage = loginPage.validLogin(username, password);
         productsPage.isProductPageLoaded();
     }
 
     @Test(groups = {"flacky"})
     public void addProductToCart(){
         loginPage.openPage();
-        ProductsPage productsPage = loginPage.validLogin("standard_user", "secret_sauce");
+        ProductsPage productsPage = loginPage.validLogin(username, password);
         productsPage.isProductPageLoaded();
         Assert.assertEquals(productsPage.addProductToCart("Sauce Labs Backpack").getButtonTitle(),
                 "REMOVE");
@@ -65,7 +66,7 @@ public class SauceDemoTest extends BaseTest {
     @Test(groups = {"flacky"})
     public void addAllProductsToCart(){
         loginPage.openPage();
-        ProductsPage productsPage = loginPage.validLogin("standard_user", "secret_sauce");
+        ProductsPage productsPage = loginPage.validLogin(username, password);
         productsPage.isProductPageLoaded();
         productsPage.addAllProducts();
         Assert.assertEquals(productsPage.addProductToCart("Sauce Labs Backpack").getButtonTitle(),
@@ -77,7 +78,7 @@ public class SauceDemoTest extends BaseTest {
     @Test(groups = {"init-browser"})
     public void logout(){
         loginPage.openPage();
-        ProductsPage productsPage = loginPage.validLogin("standard_user", "secret_sauce");
+        ProductsPage productsPage = loginPage.validLogin(username, password);
         productsPage.isProductPageLoaded();
         productsPage.logout();
     }
@@ -87,7 +88,6 @@ public class SauceDemoTest extends BaseTest {
     @Link("https://app.circleci.com/settings/project/github/RomanShcherbich/SeleniumAdvancedDemoLesson/environment-variables?return-to=https%3A%2F%2Fapp.circleci.com%2Fpipelines%2Fgithub%2FRomanShcherbich%2FSeleniumAdvancedDemoLesson")
     @Description("Circleci config test to provide environment variables")
     public void externalEnvironmentsTest(){
-        String username = System.getenv("username");
         Assert.assertEquals(username , "standard_user", "External variable [username] is " + username);
     }
 
