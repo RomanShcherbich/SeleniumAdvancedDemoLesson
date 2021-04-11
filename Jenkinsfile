@@ -23,7 +23,7 @@ pipeline {
             }
             steps {
                 git branch: "${params.BRANCH}", url: 'https://github.com/RomanShcherbich/SeleniumAdvancedDemoLesson.git'
-                bat "mvn clean install -Dmaven.test.failure.ignore=false"
+                bat "mvn clean test -Dmaven.test.failure.ignore=false"
             }
             post {
                 always  {
