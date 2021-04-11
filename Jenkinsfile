@@ -6,13 +6,12 @@ pipeline {
     }
 	
     parameters {
+	    environment {
+		driver_path = 'src/test/resources/webdrivers/windows/chromedriver.exe'
+		username = "standard_user"
+		password = "secret_sauce"
+	    }
         gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
-    }
-    
-    environment {
-        driver_path = 'src/test/resources/webdrivers/windows/chromedriver.exe'
-        username = "standard_user"
-        password = "secret_sauce"
     }
 	
     triggers {
