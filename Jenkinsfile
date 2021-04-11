@@ -6,6 +6,13 @@ pipeline {
         username = "standard_user"
         password = "secret_sauce"
     }
+	
+    triggers {
+        cron('0 8 * * *')
+    }
+    parameters {
+        gitParameter branchFilter: 'origin/(.*)', defaultValue: 'master', name: 'BRANCH', type: 'PT_BRANCH'
+    }
 
     tools {
         // Install the Maven version configured as "M3" and add it to the path.
@@ -15,7 +22,7 @@ pipeline {
     stages {
         stage('test') {
             steps {
-                git 'https://github.com/RomanShcherbich/SeleniumAdvancedDemoLesson.git'
+                git branch: "${params.BRANCH}", url: 'https://github.com/RomanShcherbich/SeleniumAdvancedDemoLesson.git'
                 bat "mvn clean install"
                 bat "mvn allure:report"
             }
