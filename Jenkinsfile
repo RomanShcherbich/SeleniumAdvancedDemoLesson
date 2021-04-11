@@ -29,7 +29,6 @@ pipeline {
             }
             
             post {
-                bat "mvn allure:report"
                 always {
                     junit '**/target/surefire-reports/TEST-*.xml'
                 }
