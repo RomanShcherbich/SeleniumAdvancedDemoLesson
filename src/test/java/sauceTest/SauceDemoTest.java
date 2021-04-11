@@ -59,7 +59,7 @@ public class SauceDemoTest extends BaseTest {
         ProductsPage productsPage = loginPage.validLogin(username, password);
         productsPage.isProductPageLoaded();
         Assert.assertEquals(productsPage.addProductToCart("Sauce Labs Backpack").getButtonTitle(),
-                "REMOVE");
+                "REMOVE2");
 
     }
 
