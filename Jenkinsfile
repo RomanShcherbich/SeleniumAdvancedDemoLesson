@@ -18,7 +18,7 @@ pipeline {
         stage('test') {
 	
 	    environment {
-		driver_path = 'src/test/resources/webdrivers/windows/chromedriver.exe'
+		driver_path = "src/test/resources/webdrivers/windows/chromedriver.exe"
 		username = "standard_user"
 		password = "secret_sauce"
 	    }		
@@ -26,7 +26,6 @@ pipeline {
             steps {
                 git branch: "${params.BRANCH}", url: 'https://github.com/RomanShcherbich/SeleniumAdvancedDemoLesson.git'
                 bat "mvn clean install"
-                bat "mvn allure:report"
             }
             
             post {
