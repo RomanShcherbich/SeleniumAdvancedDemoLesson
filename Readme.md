@@ -1,4 +1,4 @@
-taskkill /F /IM chromedriver.exe
+```taskkill /F /IM chromedriver.exe```
 
 
 CMD  to run stable tests
