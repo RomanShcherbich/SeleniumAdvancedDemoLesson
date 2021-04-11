@@ -26,10 +26,10 @@ pipeline {
             steps {
                 git branch: "${params.BRANCH}", url: 'https://github.com/RomanShcherbich/SeleniumAdvancedDemoLesson.git'
                 bat "mvn clean install"
-                bat "mvn allure:report"
             }
             
             post {
+                bat "mvn allure:report"
                 always {
                     junit '**/target/surefire-reports/TEST-*.xml'
                 }
