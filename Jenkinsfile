@@ -16,25 +16,21 @@ pipeline {
 
     stages {
         stage('test') {
-
             environment {
             driver_path = "src/test/resources/webdrivers/windows/chromedriver.exe"
             username = "standard_user"
             password = "secret_sauce"
             }
-		
             steps {
                 git branch: "${params.BRANCH}", url: 'https://github.com/RomanShcherbich/SeleniumAdvancedDemoLesson.git'
                 bat "mvn clean install"
             }
-
             post {
-                success  {
+                always  {
                     junit '**/target/surefire-reports/TEST-*.xml'
                 }
             }
         }
-        
         stage('report') {
             steps {
                 script {
