@@ -60,7 +60,7 @@ public class SauceDemoTest extends BaseTest {
         ProductsPage productsPage = loginPage.validLogin(username, password);
         productsPage.isProductPageLoaded();
         Assert.assertEquals(productsPage.addProductToCart("Sauce Labs Backpack").getButtonTitle(),
-                "REMOVE");
+                "REMOVE3");
 
     }
 
@@ -71,7 +71,7 @@ public class SauceDemoTest extends BaseTest {
         productsPage.isProductPageLoaded();
         productsPage.addAllProducts();
         Assert.assertEquals(productsPage.addProductToCart("Sauce Labs Backpack").getButtonTitle(),
-                "ADD TO CART");
+                "ADD TO CART3");
 //                "REMOVE");
     }
 
