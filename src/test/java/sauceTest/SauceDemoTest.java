@@ -25,7 +25,7 @@ public class SauceDemoTest extends BaseTest {
     @Test(description = "Test to demonstrate fluent waiter", groups = {"flacky"})
     @Parameters("keyword")
     public void testJsWaiter(String keyword) {
-        System.out.println( "! ENV VARIABLE = " + System.getenv("driver_path"));
+        System.out.println( "ENV VARIABLE = " + System.getenv("driver_path"));
         MainSteps.step("open page 1");
         loginPage.openPage();
         MainSteps.stepKeyword(keyword);
