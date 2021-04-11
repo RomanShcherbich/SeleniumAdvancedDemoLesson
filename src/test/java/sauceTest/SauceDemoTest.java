@@ -47,6 +47,7 @@ public class SauceDemoTest extends BaseTest {
 
     @Test(groups = {"init-browser"})
     public void validLogin(){
+        System.out.println(" 777 IT'S A JENKINS BRANCH TEST");
         loginPage.openPage();
         loginPage.waitLoginPageLoaded();
         ProductsPage productsPage = loginPage.validLogin(username, password);

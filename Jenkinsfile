@@ -26,7 +26,7 @@ pipeline {
                 bat "mvn clean test -Dmaven.test.failure.ignore=true"
             }
             post {
-                always  {
+                success  {
                     junit '**/target/surefire-reports/TEST-*.xml'
                 }
             }
