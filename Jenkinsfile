@@ -27,11 +27,11 @@ pipeline {
                 git branch: "${params.BRANCH}", url: 'https://github.com/RomanShcherbich/SeleniumAdvancedDemoLesson.git'
                 bat "mvn clean install"
             }
-        }
 
-        post {
-            always {
-                junit '**/target/surefire-reports/TEST-*.xml'
+            post {
+                success  {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                }
             }
         }
         
