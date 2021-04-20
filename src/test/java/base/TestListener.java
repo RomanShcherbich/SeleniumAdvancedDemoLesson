@@ -19,9 +19,6 @@ public class TestListener implements ITestListener {
     }
 
     public void onTestSuccess(ITestResult iTestResult) {
-        System.out.println(String.format("======================================== FINISHED TEST %s Duration: %ss" +
-                        " ========================================", iTestResult.getName(),
-                getExecutionTime(iTestResult)));
     }
 
     public void onTestFailure(ITestResult iTestResult) {
@@ -32,9 +29,6 @@ public class TestListener implements ITestListener {
     }
 
     public void onTestSkipped(ITestResult iTestResult) {
-        System.out.println(String.format("======================================== SKIPPING TEST %s" +
-                " ========================================", iTestResult.getName()));
-        takeScreenshot(iTestResult);
     }
 
     @Override
