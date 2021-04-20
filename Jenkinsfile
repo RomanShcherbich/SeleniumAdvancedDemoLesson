@@ -20,6 +20,7 @@ pipeline {
             driver_path = "src/test/resources/webdrivers/windows/chromedriver.exe"
             sauce.username = "standard_user"
             sauce.username = "secret_sauce"
+            loggerLevel = "info"
             }
             steps {
                 git branch: "${params.BRANCH}", url: 'https://github.com/RomanShcherbich/SeleniumAdvancedDemoLesson.git'

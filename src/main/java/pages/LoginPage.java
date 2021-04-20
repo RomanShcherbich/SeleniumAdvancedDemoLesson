@@ -33,6 +33,7 @@ public class LoginPage extends BasePage {
         log.info(String.format("send text[%s] to text field [%s]", password, "password"));
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         explicitWait.until(ExpectedConditions.elementToBeClickable(LOGIN_BUTTON));
+        log.error(String.format("click button [%s]", "LOGIN"));
         driver.findElement(LOGIN_BUTTON).click();
     }
 
