@@ -1,7 +1,7 @@
 package pages;
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -27,10 +27,10 @@ public class LoginPage extends BasePage {
     }
 
     private void loginWithUserData(String userName, String password) {
-        Logger log = LoggerFactory.getLogger(LoginPage.class);
-        log.debug(String.format("send text[%s] to text field [%s]", userName, "user-name"));
+        Logger log = LogManager.getLogger(LoginPage.class);
+        log.info(String.format("send text[%s] to text field [%s]", userName, "user-name"));
         driver.findElement(USERNAME_INPUT).sendKeys(userName);
-        log.debug(String.format("send text[%s] to text field [%s]", password, "password"));
+        log.info(String.format("send text[%s] to text field [%s]", password, "password"));
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         explicitWait.until(ExpectedConditions.elementToBeClickable(LOGIN_BUTTON));
         driver.findElement(LOGIN_BUTTON).click();

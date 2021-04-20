@@ -15,8 +15,8 @@ import java.time.Duration;
 
 public class SauceDemoTest extends BaseTest {
 
-    String username = System.getenv("username") == null ? "standard_user" : System.getenv("username");
-    String password = System.getenv("password") == null ? "secret_sauce" : System.getenv("password");
+    String username = System.getenv("sauce.username") == null ? "standard_user" : System.getenv("sauce.username");
+    String password = System.getenv("sauce.password") == null ? "secret_sauce" : System.getenv("sauce.password");
 
     @Flaky
     @Description("Тест с использование гибкого ожидания")

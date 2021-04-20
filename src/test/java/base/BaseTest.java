@@ -25,7 +25,7 @@ public class BaseTest {
     @BeforeTest
     public void setUp(ITestContext context) {
         String driverPath = System.getenv("driver_path") == null ?
-                "src/test/resources/webdrivers/linux/88/chromedriver" : System.getenv("driver_path");
+                "src/test/resources/webdrivers/windows/chromedriver.exe" : System.getenv("driver_path");
         System.setProperty("webdriver.chrome.driver", driverPath);
         driver = new ChromeDriver();
         driver.manage().window().setPosition(new Point(0, 0));
