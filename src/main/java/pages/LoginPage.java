@@ -27,6 +27,7 @@ public class LoginPage extends BasePage {
     private void loginWithUserData(String userName, String password) {
         System.out.println(String.format("send text[%s] to text field [%s]", userName, "user-name"));
         driver.findElement(USERNAME_INPUT).sendKeys(userName);
+        System.out.println(String.format("send text[%s] to text field [%s]", password, "password"));
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         explicitWait.until(ExpectedConditions.elementToBeClickable(LOGIN_BUTTON));
         driver.findElement(LOGIN_BUTTON).click();
