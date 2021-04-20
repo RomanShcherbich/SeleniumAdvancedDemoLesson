@@ -28,12 +28,12 @@ public class LoginPage extends BasePage {
 
     private void loginWithUserData(String userName, String password) {
         Logger log = LogManager.getLogger(LoginPage.class);
-        log.info(String.format("send text[%s] to text field [%s]", userName, "user-name"));
+        log.info("send text[{}] to text field [{}]", userName, "user-name");
         driver.findElement(USERNAME_INPUT).sendKeys(userName);
-        log.info(String.format("send text[%s] to text field [%s]", password, "password"));
+        log.info("send text[{}] to text field [{}]", password, "password");
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         explicitWait.until(ExpectedConditions.elementToBeClickable(LOGIN_BUTTON));
-        log.error(String.format("click button [%s]", "LOGIN"));
+        log.error("click button {}", "LOGIN");
         driver.findElement(LOGIN_BUTTON).click();
     }
 

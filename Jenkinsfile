@@ -19,7 +19,7 @@ pipeline {
             environment {
             driver_path = "src/test/resources/webdrivers/windows/chromedriver.exe"
             sauce.username = "standard_user"
-            sauce.username = "secret_sauce"
+            sauce.password = "secret_sauce"
             loggerLevel = "info"
             }
             steps {
