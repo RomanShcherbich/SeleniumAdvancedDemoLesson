@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.IReporter;
 import org.testng.IResultMap;
 import org.testng.ITestContext;
@@ -27,7 +28,23 @@ public class BaseTest {
         String driverPath = System.getenv("driver_path") == null ?
                 "src/test/resources/webdrivers/windows/chromedriver.exe" : System.getenv("driver_path");
         System.setProperty("webdriver.chrome.driver", driverPath);
-        driver = new ChromeDriver();
+        String headless_option = System.getenv("headless") == null ? "0" : System.getenv("headless");
+        ChromeOptions chromeOptions = new ChromeOptions();
+        if (headless_option.equals("1")) {
+            chromeOptions.addArguments("--headless");
+        }
+//        chromeOptions.addArguments("start-maximized");
+//        chromeOptions.addArguments("--disable-gpu");
+//        chromeOptions.addArguments("--start-fullscreen");
+//        chromeOptions.addArguments("--disable-extensions");
+//        chromeOptions.addArguments("--disable-popup-blocking");
+//        chromeOptions.addArguments("--disable-notifications");
+//        chromeOptions.addArguments("--window-size=1920,1080");
+//        chromeOptions.addArguments("--no-sandbox");
+//        chromeOptions.addArguments("--dns-prefetch-disable");
+//        chromeOptions.addArguments("enable-automation");
+//        chromeOptions.addArguments("disable-features=NetworkService");
+        driver = new ChromeDriver(chromeOptions);
         driver.manage().window().setPosition(new Point(0, 0));
         driver.manage().window().setSize(new Dimension(1280, 720));
         driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
